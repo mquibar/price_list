@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit,ViewChild ,ElementRef } from '@angular
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import {MatTableDataSource} from '@angular/material/table';
-import { MatInput } from "@angular/material/input";
 
 @Component({
   selector: 'app-list',
