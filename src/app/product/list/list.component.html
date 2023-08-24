@@ -1,0 +1,29 @@
+<div class="search">
+    <mat-form-field>
+        <mat-label>Busqueda</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input cdkFocusInitial>
+    </mat-form-field>
+    
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Producto </th>
+        <td mat-cell class="td" *matCellDef="let product">
+            {{ product.title }}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+        <td mat-cell class="td" *matCellDef="let product">
+            {{ product.price }}
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let product; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No existe datos para "{{input.value}}"</td>
+    </tr>
+</table>
